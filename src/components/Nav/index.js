@@ -17,6 +17,9 @@ const Nav = () => {
             <li>
               <NavLink to="/login">Login</NavLink>
             </li>
+            <li>
+              <NavLink to="/recover/password/:recoverPassCode"></NavLink>
+            </li>
           </>
         )}
 
@@ -33,6 +36,9 @@ const Nav = () => {
               <Link to="/profile">
                 <Avatar />
               </Link>
+            </li>
+            <li>
+              <NavLink to="/recover/password/:recoverPassCode">Login</NavLink>
             </li>
             <li>
               <button
