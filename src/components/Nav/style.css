@@ -7,18 +7,20 @@
   position: fixed;
   z-index: 100;
   float: left;
-}
-#root > nav > * {
-  flex: 1 0;
-}
-#root > nav > img {
-  width: 3rem;
-}
-#root > nav > h1 {
+  bottom: 0;
+  padding-bottom: 30px;
   text-align: center;
 }
 #root > nav > ul {
   display: flex;
   justify-content: center;
   gap: 1rem;
+}
+
+article.post {
+  max-width: 90%;
+}
+
+ul > li > a {
+  max-width: 90%;
 }

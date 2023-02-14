@@ -45,15 +45,15 @@ const Post = ({
           <p>{parseFloat(votes).toFixed(2)}</p>{" "}
           {<PostVotesStars votes={votes} />}
         </section> */}
-        <span>·</span>
+        {/* <span>·</span> */}
         <p className="PostDateAuthor">
-          Publicado por <span>usuario {idUser} </span>
+          Publicado por <span> {username} </span>
           {getTimeAgo(new Date(createdAt))}
         </p>
 
         {token && loggedUser.id !== idUser && (
           <>
-            <span>·</span>
+            {/* <span>·</span> */}
             {/*        <button
               onClick={(event) => {
                 event.preventDefault();

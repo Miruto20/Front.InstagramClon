@@ -1,4 +1,4 @@
-// import "./style.css";
+import "./style.css";
 
 import { NavLink, Link } from "react-router-dom";
 import { useTokenContext } from "../../context/TokenContext";

@@ -10,17 +10,22 @@ const UserPostPage = () => {
   const { token, loggedUser } = useTokenContext();
   const { idUser } = useParams();
 
-  const { post, setPost, errorMessage, loading } = usePostsByIdUser(idUser);
-  // console.log("post.[0]", post);
   const {
-    username,
-    avatar,
-    role,
-    createdAt,
-    email,
-    id: idUserLogged,
-  } = loggedUser;
+    post,
+    setPost,
+    errorMessage,
+    loading,
+    idUser: idUserPage,
+  } = usePostsByIdUser(idUser);
 
+  //aqui en la linea 16 no conseguimos darle el name del "post" que es un array con objetos que incluyen la la propiedad username con el valor del usuario que en todos los obj es el mismo que es el filtro de la fetch
+  // const currentPostUsername = post[0].username;
+  // console.log("post[0].username", post[0].username);
+  // console.log("post.[0]", post);
+  const { username, avatar, role, createdAt, email /* usernamePage */ } =
+    loggedUser;
+  /*   console.log(usernamePage);
+   */
   // const navigate = useNavigate();
 
   // Si no hay token, redireccionamos a "/login""
@@ -32,24 +37,23 @@ const UserPostPage = () => {
   console.log(" Object.values(post)?", Object.values(post));
   return (
     <section>
+      <h2>perfil de {/* usernamePage */}</h2>
       {Object.values(post).length > 0 &&
         post.map((currentPost) => {
           return (
             <>
-              <h2>perfil de {currentPost.username}</h2>
-
               <Post
                 id={currentPost.idPost}
                 text={currentPost.text}
                 image={currentPost.image}
                 avatar={currentPost.avatar}
                 username={currentPost.username}
-                email={email}
+                email={currentPost.email}
                 place={currentPost.place}
                 idUser={idUser}
                 rate={currentPost.rate}
                 owner={currentPost.owner}
-                createdAt={createdAt}
+                createdAt={currentPost.createdAt}
               />
             </>
           );

@@ -15,6 +15,7 @@ const usePostByIdUser = (idUser) => {
     setPost({ ...post });
   }; */
   // console.log("idUser", idUser);
+  // let usernamePage;
 
   useEffect(() => {
     const fetchPostByIdUser = async () => {
@@ -25,12 +26,13 @@ const usePostByIdUser = (idUser) => {
         });
         // console.log("res", res);
         const body = await res.json();
-        // console.log("body", body);
+        console.log("body", body);
 
         if (!res.ok) {
           throw new Error(body.message);
         }
         setPost(body.data.post);
+        // usernamePage = post.username;
       } catch (error) {
         console.error(error);
         setErrorMessage(error.message);
@@ -44,6 +46,7 @@ const usePostByIdUser = (idUser) => {
 
   return {
     post: post,
+    // usernamePage,
     loading,
     errorMessage /* addVoteToPost: addVoteToPost  */,
   };
