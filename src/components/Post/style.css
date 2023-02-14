@@ -1,24 +1,24 @@
-.entry {
+.post {
   border: 1px solid rgb(136, 136, 136);
   padding: 1rem;
   width: 700px;
   background-color: white;
 }
 
-.entry:hover {
+.post:hover {
   border: 1px solid black;
 }
 
-.entry h3::first-letter,
-.entry p::first-letter {
+.post h3::first-letter,
+.post p::first-letter {
   text-transform: capitalize;
 }
 
-.entry h3 {
+.post h3 {
   margin-bottom: 0.25rem;
 }
 
-.entry h4 {
+.post h4 {
   font-size: 0.75rem;
   text-transform: uppercase;
   font-style: italic;
@@ -26,12 +26,12 @@
   color: rgb(39, 39, 39);
 }
 
-.entry h4,
-.entry > p {
+.post h4,
+.post > p {
   margin-bottom: 1rem;
 }
 
-.entry > footer {
+.post > footer {
   display: flex;
   gap: 0.25rem;
   align-items: center;

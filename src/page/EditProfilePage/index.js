@@ -1,8 +1,9 @@
-import { useTokenContext } from "../context/TokenContext";
-import Avatar from "../components/Avatar";
-import getTimeAgo from "../utils/getTimeAgo";
+import "./style.css";
+import { useTokenContext } from "../../context/TokenContext";
+import Avatar from "../../components/Avatar";
+import getTimeAgo from "../../utils/getTimeAgo";
 import { useState, useRef } from "react";
-import Modal from "../components/Modal/index";
+import Modal from "../../components/Modal/index";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
@@ -59,7 +60,7 @@ const EditProfilePage = () => {
             }
           }}
         >
-          <label htmlFor="image">Imagen</label>
+          <label htmlFor="image">Seleccionar imagen</label>
           <input
             id="image"
             type="file"
@@ -67,7 +68,7 @@ const EditProfilePage = () => {
             accept="image/*"
             ref={imagesInputRef}
           ></input>
-          <button>Cambiar Foto</button>
+          <button>Confirmar cambio</button>
         </form>
         <h3>Nombre de Usuario:{username}</h3>
         <h4>email: {email}</h4>

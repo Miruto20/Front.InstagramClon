@@ -6,6 +6,7 @@ import getTimeAgo from "../../utils/getTimeAgo";
 import { useTokenContext } from "../../context/TokenContext";
 // import { useState } from "react";
 import PostPhoto from "../PostPhoto";
+import { NavLink } from "react-router-dom";
 
 const Post = ({
   id,
@@ -23,12 +24,14 @@ const Post = ({
   const { token, loggedUser } = useTokenContext();
   /*   const [showModal, setShowModal] = useState(false);
    */
-  console.log("image", image);
+  // console.log("image", image);
 
   return (
     <article className="post">
       <header>
-        <h3>{username}</h3>
+        <h3>
+          <NavLink to={`/posts/${idUser}`}>{username}</NavLink>
+        </h3>
         <h4>{place}</h4>
       </header>
 

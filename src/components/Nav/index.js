@@ -1,9 +1,12 @@
+// import "./style.css";
+
 import { NavLink, Link } from "react-router-dom";
 import { useTokenContext } from "../../context/TokenContext";
 import Avatar from "../Avatar";
 
 const Nav = () => {
-  const { token, setToken } = useTokenContext();
+  const { token, setToken, loggedUser } = useTokenContext();
+  const { id } = loggedUser;
 
   return (
     <nav>
@@ -31,6 +34,9 @@ const Nav = () => {
 
             <li>
               <Link to="/new/post">Nuevo post </Link>
+            </li>
+            <li>
+              <Link to={`/posts/${id}`}> Post del Usuario </Link>
             </li>
             <li>
               <Link to="/profile">

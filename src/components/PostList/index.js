@@ -22,7 +22,7 @@ const PostList = ({ posts, addVoteToPost }) => {
 
         return (
           <li key={id}>
-            <Link to={`/posts/${id}`}>
+            <Link to={`/post/${id}`}>
               <Post
                 id={id}
                 text={text}
