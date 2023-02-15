@@ -44,7 +44,7 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <NavLink to="/recover/password/:recoverPassCode">Login</NavLink>
+              <NavLink to="/recover/password/:recoverPassCode"></NavLink>
             </li>
             <li>
               <button

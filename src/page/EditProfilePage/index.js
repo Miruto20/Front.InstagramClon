@@ -5,8 +5,9 @@ import getTimeAgo from "../../utils/getTimeAgo";
 import { useState, useRef } from "react";
 import Modal from "../../components/Modal/index";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, Navigate } from "react-router-dom";
+import PassButton from "../../components/PassButton/index";
+import EmailButton from "../../components/EmailButton";
 const EditProfilePage = () => {
   const { loggedUser } = useTokenContext();
   const { username, createdAt, email } = loggedUser;
@@ -16,8 +17,14 @@ const EditProfilePage = () => {
   const imagesInputRef = useRef();
 
   const [showModal, setShowModal] = useState(false);
+  const [showMailModal, setShowMailModal] = useState(false);
+  const [newEmail, setNewEmail] = useState("");
+
   // const [cambioContraseña, setCambioContraseña] = useState(false);
   const { token } = useTokenContext();
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <section>
@@ -72,6 +79,47 @@ const EditProfilePage = () => {
         </form>
         <h3>Nombre de Usuario:{username}</h3>
         <h4>email: {email}</h4>
+        <button
+          onClick={() => {
+            setShowMailModal(true);
+          }}
+        >
+          Cambiar Email
+        </button>
+        {showMailModal && (
+          <Modal setShowModal={setShowMailModal}>
+            <p>
+              ¿Estás seguro de qué quieres modificarlo? Una vez hagas esto, se
+              te desactivará la cuenta hasta que confirmes en tu nuevo mail. Se
+              te va a enviar un correo con un código de activacion para cambiar
+              el Email. En caso de algun problema contacte con soporte. Un
+              cordial saludo.
+            </p>
+            <label htmlFor="newEmail" />
+            <input
+              id="newEmail"
+              type="email"
+              required
+              value={newEmail}
+              onChange={(event) => {
+                setNewEmail(event.target.value);
+              }}
+            />
+            <button
+              onClick={() => {
+                setShowMailModal(false);
+              }}
+            >
+              Cancelar
+            </button>
+            <EmailButton
+              email={email}
+              setShowMailModal={setShowMailModal}
+              newEmail={newEmail}
+            />
+          </Modal>
+        )}
+
         <p> se unió: {getTimeAgo(new Date(createdAt))}</p>
         <button
           onClick={() => {
@@ -95,43 +143,9 @@ const EditProfilePage = () => {
           >
             Cancelar
           </button>
-
-          <button
-            //fetch para solicitar que te envíe un correo con una nueva contraseña
-            onClick={async () => {
-              try {
-                const res = await fetch(
-                  "http://localhost:4000/users/password/recover",
-                  {
-                    method: "POST",
-                    body: JSON.stringify({ email }),
-                    headers: { "Content-Type": "application/json" },
-                  }
-                );
-
-                const body = await res.json();
-                console.log(body);
-
-                if (!res.ok) {
-                  throw new Error(body.message);
-                }
-
-                // setCambioContraseña(true);
-                navigate("/login");
-
-                toast.success(body.message);
-              } catch (error) {
-                console.error(error);
-                toast.error(error.message);
-              } finally {
-                setShowModal(false);
-              }
-            }}
-          >
-            Sí, cambiar contraseña
-          </button>
+          <PassButton email={email} setShowModal={setShowModal} />
         </Modal>
-      )}{" "}
+      )}
     </section>
   );
 };

@@ -10,6 +10,7 @@ const Avatar = () => {
     <img
       src={avatar ? `http://localhost:4000/${avatar} ` : defaultAvatar}
       alt={`${username} avatar`}
+      className="fotoAvatarPeque "
     />
   );
 };

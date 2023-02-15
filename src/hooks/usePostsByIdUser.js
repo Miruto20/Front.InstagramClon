@@ -5,6 +5,8 @@ const usePostByIdUser = (idUser) => {
   const [post, setPost] = useState({});
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [usernamePage, setUsernamePage] = useState("");
+  const [avatarPage, setAvatarPage] = useState("");
 
   const { token } = useTokenContext();
 
@@ -32,7 +34,9 @@ const usePostByIdUser = (idUser) => {
           throw new Error(body.message);
         }
         setPost(body.data.post);
-        // usernamePage = post.username;
+        setUsernamePage(body.data.post[0].username);
+        setAvatarPage(body.data.post[0].avatar);
+        console.log("usernamePage", usernamePage);
       } catch (error) {
         console.error(error);
         setErrorMessage(error.message);
@@ -42,11 +46,13 @@ const usePostByIdUser = (idUser) => {
     };
 
     fetchPostByIdUser();
-  }, [idUser, token]);
+  }, [idUser, token, usernamePage]);
 
   return {
     post: post,
-    // usernamePage,
+    usernamePage,
+    setUsernamePage,
+    avatarPage,
     loading,
     errorMessage /* addVoteToPost: addVoteToPost  */,
   };

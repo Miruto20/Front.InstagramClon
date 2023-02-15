@@ -1,10 +1,17 @@
 import Spinner from "../components/Spinner";
 import PostList from "../components/PostList";
+import { Navigate } from "react-router-dom";
+import { useTokenContext } from "../context/TokenContext";
 
 import usePosts from "../hooks/usePosts";
 
 const PostsPage = () => {
   const { posts, errorMessage, loading } = usePosts();
+  const { token, loggedUser } = useTokenContext();
+
+  if (!token) {
+    return <Navigate to="/login" />;
+  }
 
   return (
     <section>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useTokenContext } from "../context/TokenContext";
 import { Navigate } from "react-router-dom";
+import PassButton from "../components/PassButton/index";
+import Modal from "../components/Modal/index";
 
 const LoginPage = () => {
   const { token } = useTokenContext();
@@ -9,6 +11,7 @@ const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   const { setToken } = useTokenContext();
   if (token) {
@@ -71,6 +74,30 @@ const LoginPage = () => {
         />
 
         <button>Login</button>
+        <button
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
+          Cambiar contraseña
+        </button>
+        {showModal && (
+          <Modal setShowModal={setShowModal}>
+            <p>
+              Se te va a enviar un email con un código para cambiar la
+              contraseña. ¿Estás seguro de qué quieres modificarla?
+            </p>
+
+            <button
+              onClick={() => {
+                setShowModal(false);
+              }}
+            >
+              Cancelar
+            </button>
+            <PassButton email={email} setShowModal={setShowModal} />
+          </Modal>
+        )}
       </form>
       {errorMessage && <p>Error: {errorMessage}</p>}
     </section>

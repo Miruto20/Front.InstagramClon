@@ -14,9 +14,13 @@ const UserPostPage = () => {
     post,
     setPost,
     errorMessage,
+    usernamePage,
+    avatarPage,
+    setUsernamePage,
     loading,
     idUser: idUserPage,
   } = usePostsByIdUser(idUser);
+  console.log("usernamePageFinal", usernamePage);
 
   //aqui en la linea 16 no conseguimos darle el name del "post" que es un array con objetos que incluyen la la propiedad username con el valor del usuario que en todos los obj es el mismo que es el filtro de la fetch
   // const currentPostUsername = post[0].username;
@@ -25,7 +29,9 @@ const UserPostPage = () => {
   const { username, avatar, role, createdAt, email /* usernamePage */ } =
     loggedUser;
   /*   console.log(usernamePage);
+
    */
+  console.log("avatar", avatar);
   // const navigate = useNavigate();
 
   // Si no hay token, redireccionamos a "/login""
@@ -37,11 +43,18 @@ const UserPostPage = () => {
   console.log(" Object.values(post)?", Object.values(post));
   return (
     <section>
-      <h2>perfil de {/* usernamePage */}</h2>
+      <h2>
+        <img
+          src={`http://localhost:4000/${avatar}`}
+          alt={username}
+          className="fotoAvatarPeque"
+        />
+        {usernamePage}{" "}
+      </h2>
       {Object.values(post).length > 0 &&
         post.map((currentPost) => {
           return (
-            <>
+            <article key={currentPost.idPost}>
               <Post
                 id={currentPost.idPost}
                 text={currentPost.text}
@@ -55,7 +68,7 @@ const UserPostPage = () => {
                 owner={currentPost.owner}
                 createdAt={currentPost.createdAt}
               />
-            </>
+            </article>
           );
         })}
     </section>

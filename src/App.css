@@ -35,40 +35,15 @@ main > section {
 }
 section > h2 {
   text-align: center;
+  display: flex;
+  align-items: center;
 }
-/* 
-#root {
-  display: grid;
-  background-color: blue;
-  grid-template-rows: 4rem 1fr 2fr 1fr 1fr;
-  grid-template-columns: 1fr;
-
-  /*   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
- 
-  grid-template-areas:
-    " header"
-    "main"
-    " nav "
-    "footer ";
-
-  /*   grid-template-columns: 300px;
-  grid-template-rows: 200px 75px; 
+.fotoAvatarPeque {
+  border-radius: 50%;
+  max-width: 65px;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  margin-right: 18%;
+  margin-left: 1rem;
 }
-/* #root > main {
-  grid-template-columns:
-   grid-template-rows:
-
-} 
-header {
-  grid-area: header;
-}
-nav {
-  grid-area: nav;
-}
-main {
-  grid-area: main;
-}
-footer {
-  grid-area: footer;
-}
- */
