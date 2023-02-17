@@ -1,12 +1,14 @@
 import "./style.css";
 import getTimeAgo from "../../utils/getTimeAgo";
-// import PostVotesStars from "../PostVotesStars";
+import PostVotesStars from "../../components/PostVotesStars/index";
 // import PostPhotos from "../PostPhotos";
-// import Modal from "../Modal";
+import Modal from "../Modal";
+import DeletePost from "../DeletePost";
 import { useTokenContext } from "../../context/TokenContext";
-// import { useState } from "react";
+import { useState } from "react";
 import PostPhoto from "../PostPhoto";
 import { NavLink } from "react-router-dom";
+import usePosts from "../../hooks/usePosts";
 
 const Post = ({
   id,
@@ -20,10 +22,13 @@ const Post = ({
   rate,
   owner,
   createdAt,
+  ratedByMe,
+  addVoteToPost,
 }) => {
   const { token, loggedUser } = useTokenContext();
-  /*   const [showModal, setShowModal] = useState(false);
-   */
+  const [showModal, setShowModal] = useState(false);
+  const [showBorrarModal, setShowBorrarModal] = useState(false);
+  const { posts, setPosts } = usePosts();
   // console.log("image", image);
 
   return (
@@ -41,11 +46,10 @@ const Post = ({
       {/* {image?.length > 0 && <PostPhotos photos={image} text={text} />} */}
 
       <footer>
-        {/*    <section className="PostVotes">
-          <p>{parseFloat(votes).toFixed(2)}</p>{" "}
-          {<PostVotesStars votes={votes} />}
-        </section> */}
-        {/* <span>·</span> */}
+        <section className="PostVotes">
+          <p>{parseFloat(rate).toFixed(2)}</p> {<PostVotesStars rate={rate} />}
+        </section>
+        <span>·</span>
         <p className="PostDateAuthor">
           Publicado por <span> {username} </span>
           {getTimeAgo(new Date(createdAt))}
@@ -53,8 +57,8 @@ const Post = ({
 
         {token && loggedUser.id !== idUser && (
           <>
-            {/* <span>·</span> */}
-            {/*        <button
+            <span>·</span>
+            <button
               onClick={(event) => {
                 event.preventDefault();
 
@@ -62,26 +66,79 @@ const Post = ({
               }}
             >
               Votar
-            </button> */}
+            </button>
+          </>
+        )}
+
+        {token && loggedUser.id === idUser && (
+          <>
+            <span>·</span>
+            <button
+              onClick={(event) => {
+                event.preventDefault();
+
+                setShowBorrarModal(true);
+              }}
+            >
+              Borrar Post
+            </button>
           </>
         )}
       </footer>
 
-      {/*           {showModal && (
+      {showModal && (
         <Modal setShowModal={setShowModal}>
-          {!voteByLoggedUser ? (
-            <p>Escoge la puntuación que le quieres dar a la entrada:</p>
+          {ratedByMe ? (
+            <>
+              <p>Escoge la puntuación que le quieres dar a la entrada:</p>
+              <button
+                onClick={() => {
+                  setShowModal(false);
+                }}
+              >
+                cancelar
+              </button>
+            </>
           ) : (
-            <p>Has dado esta puntuación:</p>
+            <>
+              <p>Has dado esta puntuación:</p>
+              <button
+                onClick={() => {
+                  setShowModal(false);
+                }}
+              >
+                cancelar
+              </button>
+            </>
           )}
 
           <PostVotesStars
-            votes={voteByLoggedUser}
-            PostId={id}
+            rate={ratedByMe}
+            idPost={id}
             addVoteToPost={addVoteToPost}
           />
         </Modal>
-      )}  */}
+      )}
+
+      {showBorrarModal && (
+        <Modal setShowBorrarModal={setShowBorrarModal}>
+          <button
+            onClick={() => {
+              setShowBorrarModal(false);
+            }}
+          >
+            volver
+          </button>
+
+          <DeletePost
+            idUser={idUser}
+            idPost={id}
+            setShowBorrarModal={setShowBorrarModal}
+            posts={posts}
+            setPosts={setPosts}
+          />
+        </Modal>
+      )}
     </article>
   );
 };

@@ -8,9 +8,9 @@ const usePostById = (id) => {
 
   const { token } = useTokenContext();
 
-  const addVoteToPost = ({ newAvg, voteByLoggedUser }) => {
-    post.voteByLoggedUser = voteByLoggedUser;
-    post.votes = newAvg;
+  const addVoteToPost = ({ newAvg, ratedByMe }) => {
+    post.ratedByMe = ratedByMe;
+    post.rate = newAvg;
 
     setPost({ ...post });
   };
@@ -40,7 +40,7 @@ const usePostById = (id) => {
     fetchPostById();
   }, [id]);
 
-  return { post: post, loading, errorMessage, addVoteToPost: addVoteToPost };
+  return { post: post, loading, errorMessage, addVoteToPost };
 };
 
 export default usePostById;

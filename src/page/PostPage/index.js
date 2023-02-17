@@ -54,6 +54,7 @@ const PostPage = () => {
           rate={rate}
           owner={owner}
           createdAt={createdAt}
+          addVoteToPost={addVoteToPost}
         />
       )}
     </section>

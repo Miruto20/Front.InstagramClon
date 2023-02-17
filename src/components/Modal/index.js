@@ -12,7 +12,7 @@ const Modal = ({ children, setShowModal }) => {
         event.preventDefault();
 
         // Cerramos el modal cambiando el estado showModal a false
-        // setShowModal(false);
+        setShowModal(false);
       }}
     >
       <div

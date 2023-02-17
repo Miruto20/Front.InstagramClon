@@ -35,6 +35,7 @@ const PostList = ({ posts, addVoteToPost }) => {
                 rate={rate}
                 owner={owner}
                 createdAt={createdAt}
+                addVoteToPost={addVoteToPost}
               />
             </Link>
           </li>

@@ -10,12 +10,12 @@ const usePostByIdUser = (idUser) => {
 
   const { token } = useTokenContext();
 
-  /*   const addVoteToPost = ({ newAvg, voteByLoggedUser }) => {
-    post.voteByLoggedUser = voteByLoggedUser;
+  const addVoteToPost = ({ newAvg, ratedByMe }) => {
+    post.ratedByMe = ratedByMe;
     post.votes = newAvg;
 
     setPost({ ...post });
-  }; */
+  };
   // console.log("idUser", idUser);
   // let usernamePage;
 

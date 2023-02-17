@@ -10,11 +10,11 @@ const usePosts = () => {
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const addVoteToPost = ({ id, newAvg, voteByLoggedUser }) => {
+  const addVoteToPost = ({ id, newAvg, ratedByMe }) => {
     const index = posts.findIndex((post) => post.id === id);
 
-    posts[index].voteByLoggedUser = voteByLoggedUser;
-    posts[index].votes = newAvg;
+    posts[index].ratedByMe = ratedByMe;
+    posts[index].rate = newAvg;
 
     setPosts([...posts]);
   };
@@ -65,6 +65,7 @@ const usePosts = () => {
     addVoteToPost: addVoteToPost,
     searchParams,
     setSearchParams,
+    setPosts,
   };
 };
 
