@@ -2,7 +2,7 @@ import "./style.css";
 import StarIcon from "../StarIcon";
 import { useTokenContext } from "../../context/TokenContext";
 
-const PostVotesStars = ({ rate, idPost, addVoteToPost }) => {
+const PostVotesStars = ({ rate, idPost, addVoteToPost, setShowModal }) => {
   const { token } = useTokenContext();
 
   // En este array meteremos las estrellitas que vamos a generar
@@ -45,11 +45,13 @@ const PostVotesStars = ({ rate, idPost, addVoteToPost }) => {
 
             addVoteToPost({
               id: idPost,
-              newAvg: body.data.value,
-              ratedByMe: currentStar,
+              newAvg: body.data.rate,
+              valueRated: currentStar,
             });
           } catch (error) {
             console.error(error);
+          } finally {
+            setShowModal(false);
           }
         }}
       >

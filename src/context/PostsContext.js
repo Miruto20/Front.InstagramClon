@@ -13,10 +13,10 @@ export const CustomPostsContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const addVoteToPost = ({ id, newAvg, ratedByMe }) => {
+  const addVoteToPost = ({ id, newAvg, valueRated }) => {
     const index = posts.findIndex((post) => post.id === id);
 
-    posts[index].ratedByMe = ratedByMe;
+    posts[index].valueRated = valueRated;
     posts[index].rate = newAvg;
 
     setPosts([...posts]);

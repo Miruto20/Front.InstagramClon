@@ -17,6 +17,8 @@ const PostList = ({ posts, addVoteToPost }) => {
           idUser,
           rate,
           owner,
+          ratedByMe,
+          valueRated,
           createdAt,
         } = post;
 
@@ -33,6 +35,8 @@ const PostList = ({ posts, addVoteToPost }) => {
                 place={place}
                 idUser={idUser}
                 rate={rate}
+                ratedByMe={ratedByMe}
+                valueRated={valueRated}
                 owner={owner}
                 createdAt={createdAt}
                 addVoteToPost={addVoteToPost}

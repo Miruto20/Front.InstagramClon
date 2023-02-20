@@ -16,7 +16,7 @@ const DeletePost = ({ idUser, idPost, setShowBorrarModal }) => {
   // useEffect(() => {
   return (
     <button
-      //fetch para solicitar que te envíe un correo con una nueva contraseña
+      //fetch para borrar el post de la BBDD
       onClick={async () => {
         try {
           const res = await fetch(`http://localhost:4000/posts/${idPost}`, {

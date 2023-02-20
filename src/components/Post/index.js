@@ -8,6 +8,7 @@ import { useTokenContext } from "../../context/TokenContext";
 import { useState } from "react";
 import PostPhoto from "../PostPhoto";
 import { NavLink } from "react-router-dom";
+import StarIcon from "../StarIcon";
 // import usePosts from "../../hooks/usePosts";
 
 const Post = ({
@@ -20,15 +21,23 @@ const Post = ({
   place,
   idUser,
   rate,
-  owner,
-  createdAt,
   ratedByMe,
+  owner,
+  valueRated,
+  createdAt,
   addVoteToPost,
 }) => {
   const { token, loggedUser } = useTokenContext();
+  // startsToFill es el número de estrellas que queremos pintar. Si la votación de la entrada es 2.6 pintaremos 3 estrellas, si es 2.4 pintaremos 2
+  // const starsToFill = Math.round(rate);
+  console.log("ratedByme", ratedByMe);
+  console.log("valueRated", valueRated);
+
+  console.log();
 
   const [showModal, setShowModal] = useState(false);
   const [showBorrarModal, setShowBorrarModal] = useState(false);
+
   // const { posts, setPosts } = usePosts();
   // console.log("image", image);
 
@@ -46,7 +55,14 @@ const Post = ({
 
       <footer>
         <section className="PostVotes">
-          <p>{parseFloat(rate).toFixed(2)}</p> {<PostVotesStars rate={rate} />}
+          <p>{parseFloat(rate).toFixed(2)}</p>{" "}
+          {
+            <PostVotesStars
+              rate={rate}
+              idPost={id}
+              addVoteToPost={addVoteToPost}
+            />
+          }
         </section>
         <span>·</span>
         <p className="PostDateAuthor">
@@ -88,8 +104,8 @@ const Post = ({
       {showModal && (
         <Modal setShowModal={setShowModal}>
           {ratedByMe ? (
-            <>
-              <p>Escoge la puntuación que le quieres dar a la entrada:</p>
+            <section>
+              <p>Has dado esta puntuación: </p>
               <button
                 onClick={() => {
                   setShowModal(false);
@@ -97,10 +113,10 @@ const Post = ({
               >
                 cancelar
               </button>
-            </>
+            </section>
           ) : (
             <>
-              <p>Has dado esta puntuación:</p>
+              <p>Escoge la puntuación que le quieres dar a la entrada:</p>
               <button
                 onClick={() => {
                   setShowModal(false);
@@ -112,9 +128,10 @@ const Post = ({
           )}
 
           <PostVotesStars
-            rate={ratedByMe}
+            rate={valueRated}
             idPost={id}
             addVoteToPost={addVoteToPost}
+            setShowModal={setShowModal}
           />
         </Modal>
       )}

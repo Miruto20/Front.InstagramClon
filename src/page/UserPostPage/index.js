@@ -63,10 +63,12 @@ const UserPostPage = () => {
                 username={currentPost.username}
                 email={currentPost.email}
                 place={currentPost.place}
+                ratedByMe={currentPost.ratedByMe}
                 idUser={idUser}
                 rate={currentPost.rate}
                 owner={currentPost.owner}
                 createdAt={currentPost.createdAt}
+                // valueRated={currentPost.valueRated}
               />
             </article>
           );

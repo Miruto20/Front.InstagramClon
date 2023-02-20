@@ -23,6 +23,8 @@ const PostPage = () => {
     idUser,
     rate,
     owner,
+    ratedByMe,
+    valueRated,
     createdAt,
   } = post;
 
@@ -53,6 +55,8 @@ const PostPage = () => {
           idUser={idUser}
           rate={rate}
           owner={owner}
+          ratedByMe={ratedByMe}
+          valueRated={valueRated}
           createdAt={createdAt}
           addVoteToPost={addVoteToPost}
         />
