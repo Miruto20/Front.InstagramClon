@@ -8,7 +8,7 @@ import { useTokenContext } from "../../context/TokenContext";
 import { useState } from "react";
 import PostPhoto from "../PostPhoto";
 import { NavLink } from "react-router-dom";
-import usePosts from "../../hooks/usePosts";
+// import usePosts from "../../hooks/usePosts";
 
 const Post = ({
   id,
@@ -26,9 +26,10 @@ const Post = ({
   addVoteToPost,
 }) => {
   const { token, loggedUser } = useTokenContext();
+
   const [showModal, setShowModal] = useState(false);
   const [showBorrarModal, setShowBorrarModal] = useState(false);
-  const { posts, setPosts } = usePosts();
+  // const { posts, setPosts } = usePosts();
   // console.log("image", image);
 
   return (
@@ -42,8 +43,6 @@ const Post = ({
 
       <p>{text}</p>
       {image?.length > 0 && <PostPhoto image={image} username={username} />}
-
-      {/* {image?.length > 0 && <PostPhotos photos={image} text={text} />} */}
 
       <footer>
         <section className="PostVotes">
@@ -134,8 +133,6 @@ const Post = ({
             idUser={idUser}
             idPost={id}
             setShowBorrarModal={setShowBorrarModal}
-            posts={posts}
-            setPosts={setPosts}
           />
         </Modal>
       )}

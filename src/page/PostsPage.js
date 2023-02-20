@@ -3,18 +3,19 @@ import PostList from "../components/PostList";
 import { Navigate } from "react-router-dom";
 import { useTokenContext } from "../context/TokenContext";
 import SearchForm from "../components/SearchForm/index";
+import { usePostsContext } from "../context/PostsContext";
 
-import usePosts from "../hooks/usePosts";
+// import usePosts from "../hooks/usePosts";
 
 const PostsPage = () => {
   const {
-    posts,
     errorMessage,
     loading,
     addVoteToPost,
     searchParams,
     setSearchParams,
-  } = usePosts();
+    posts,
+  } = usePostsContext();
   const { token, loggedUser } = useTokenContext();
 
   if (!token) {

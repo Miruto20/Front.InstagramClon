@@ -6,7 +6,7 @@ import LoginPage from "./page/LoginPage";
 import NewPostPage from "./page/NewPostPage";
 import ValidationPage from "./page/ValidationPage";
 import EditProfilePage from "./page/EditProfilePage/index";
-import RecoverEmailPage from "./page/RecoverEmailPage /index";
+import RecoverEmailPage from "./page/RecoverEmailPage/index";
 import PostPage from "./page/PostPage/index";
 import UserPostPage from "./page/UserPostPage/index";
 import Nav from "./components/Nav";

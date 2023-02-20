@@ -2,11 +2,14 @@ import { useState, useRef } from "react";
 import { useTokenContext } from "../context/TokenContext";
 import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
+import { usePostsContext } from "../context/PostsContext";
 
 const NewPostPage = () => {
   const [text, SetText] = useState("");
   const [place, SetPlace] = useState("");
   const [errorMessage, SetErrorMessage] = useState("");
+
+  const { setPosts, posts } = usePostsContext();
 
   const imagesInputRef = useRef();
 
@@ -51,6 +54,12 @@ const NewPostPage = () => {
             if (!res.ok) {
               throw new Error(body.message);
             }
+            // const newPost = body.data.post;
+            console.log("posts", posts);
+            // posts.push(newPost);
+            console.log("body.idPosts", body.idPost);
+
+            setPosts(body.idPost);
             navigate("/");
           } catch (error) {
             console.error(error);

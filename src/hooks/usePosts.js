@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 
 // El custom hook usePosts carga los Posts de la API y nos retorna un objeto con los Posts, loading y errorMessage
 const usePosts = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();

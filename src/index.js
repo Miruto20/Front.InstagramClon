@@ -4,13 +4,17 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { CustomTokenContextProvider } from "./context/TokenContext";
+import { CustomPostsContextProvider } from "./context/PostsContext";
+
 import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <CustomTokenContextProvider>
-        <App />
+        <CustomPostsContextProvider>
+          <App />
+        </CustomPostsContextProvider>
       </CustomTokenContextProvider>
     </BrowserRouter>
   </React.StrictMode>

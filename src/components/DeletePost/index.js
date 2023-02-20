@@ -2,18 +2,18 @@ import "./style.css";
 import { useTokenContext } from "../../context/TokenContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useEffect } from "react";
+// import usePosts from "../../hooks/usePosts";
+import { usePostsContext } from "../../context/PostsContext";
 
-const DeletePost = ({
-  idUser,
-  idPost,
-  setShowBorrarModal,
-  posts,
-  setPosts,
-}) => {
+const DeletePost = ({ idUser, idPost, setShowBorrarModal }) => {
   const navigate = useNavigate();
 
   const { token } = useTokenContext();
+  // const { posts, setPosts } = usePosts();
+  const { posts, setPosts } = usePostsContext();
 
+  // useEffect(() => {
   return (
     <button
       //fetch para solicitar que te envíe un correo con una nueva contraseña
@@ -34,11 +34,11 @@ const DeletePost = ({
           if (!res.ok) {
             throw new Error(body.message);
           }
+          setPosts((posts) => posts.filter((post) => post.id !== idPost));
 
-          // setCambioContraseña(true);
+          // console.log("body.data.posts", body.data.posts);
+          // setPosts(body.data.posts);
           navigate("/");
-          setPosts([...posts]);
-
           toast.success(body.message);
         } catch (error) {
           console.error(error);
@@ -52,5 +52,7 @@ const DeletePost = ({
     </button>
   );
 };
+// }, [posts]);
+// };
 
 export default DeletePost;
