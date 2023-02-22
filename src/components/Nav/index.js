@@ -33,7 +33,9 @@ const Nav = () => {
             </li>
 
             <li>
-              <Link to="/new/post">Nuevo post </Link>
+              <Link to="/new/post">
+                <ion-icon name="add-circle-outline"></ion-icon>
+              </Link>
             </li>
             <li>
               <Link to={`/posts/${id}`}> Post del Usuario </Link>

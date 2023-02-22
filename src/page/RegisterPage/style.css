@@ -1,0 +1,30 @@
+register label,
+.register button {
+  display: block;
+}
+.register label {
+  margin-bottom: 0.5rem;
+}
+.register input {
+  margin-bottom: 2rem;
+  padding: 0.5rem 0.75rem;
+  width: 500px;
+  border-radius: 0.25rem;
+  border: 1px solid rgb(136, 136, 136);
+  font-size: 1.1rem;
+}
+.register input:focus {
+  outline: 1px solid black;
+}
+.register button {
+  padding: 1rem 4rem;
+  background-color: white;
+  border: 1px solid rgb(136, 136, 136);
+  font-size: 1.1rem;
+  margin: 2rem auto;
+  border-radius: 0.25rem;
+}
+.register button:hover {
+  background-color: black;
+  color: white;
+}

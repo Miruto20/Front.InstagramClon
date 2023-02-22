@@ -1,31 +1,25 @@
+import "./style.css";
 import { useState } from "react";
-import { useTokenContext } from "../context/TokenContext";
-import { Navigate } from "react-router-dom";
-import PassButton from "../components/PassButton/index";
-import Modal from "../components/Modal/index";
+import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
-  const { token } = useTokenContext();
-
+const RegisterPage = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [showModal, setShowModal] = useState(false);
 
-  const { setToken } = useTokenContext();
-  if (token) {
-    return <Navigate to="/" />;
-  }
+  const navigate = useNavigate();
+
   return (
     <section>
-      <h2>Pagina de Login</h2>
+      <h2>Pagina de registro</h2>
       <form
+        className="register"
         onSubmit={async (event) => {
           try {
             event.preventDefault();
 
-            const res = await fetch("http://localhost:4000/users/login", {
+            const res = await fetch("http://localhost:4000/users", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ username, email, password }),
@@ -37,7 +31,9 @@ const LoginPage = () => {
               throw new Error(body.message);
             }
 
-            setToken(body.data.token);
+            navigate("/login");
+
+            console.log(body);
           } catch (error) {
             console.error(error);
             setErrorMessage(error.message);
@@ -73,35 +69,11 @@ const LoginPage = () => {
           }}
         />
 
-        <button>Login</button>
-        <button
-          onClick={() => {
-            setShowModal(true);
-          }}
-        >
-          Cambiar contraseña
-        </button>
-        {showModal && (
-          <Modal setShowModal={setShowModal}>
-            <p>
-              Se te va a enviar un email con un código para cambiar la
-              contraseña. ¿Estás seguro de qué quieres modificarla?
-            </p>
-
-            <button
-              onClick={() => {
-                setShowModal(false);
-              }}
-            >
-              Cancelar
-            </button>
-            <PassButton email={email} setShowModal={setShowModal} />
-          </Modal>
-        )}
+        <button>Registrarse</button>
       </form>
       {errorMessage && <p>Error: {errorMessage}</p>}
     </section>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

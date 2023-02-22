@@ -28,7 +28,6 @@ const usePostByIdUser = (idUser) => {
         });
         // console.log("res", res);
         const body = await res.json();
-        console.log("body", body);
 
         if (!res.ok) {
           throw new Error(body.message);
@@ -36,7 +35,6 @@ const usePostByIdUser = (idUser) => {
         setPost(body.data.post);
         setUsernamePage(body.data.post[0].username);
         setAvatarPage(body.data.post[0].avatar);
-        console.log("usernamePage", usernamePage);
       } catch (error) {
         console.error(error);
         setErrorMessage(error.message);

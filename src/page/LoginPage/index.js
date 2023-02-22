@@ -1,23 +1,33 @@
+import "./style.css";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useTokenContext } from "../../context/TokenContext";
+import { Navigate } from "react-router-dom";
+import PassButton from "../../components/PassButton/index";
+import Modal from "../../components/Modal/index";
 
-const RegisterPage = () => {
+const LoginPage = () => {
+  const { token } = useTokenContext();
+
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
-  const navigate = useNavigate();
-
+  const { setToken } = useTokenContext();
+  if (token) {
+    return <Navigate to="/" />;
+  }
   return (
     <section>
-      <h2>Pagina de registro</h2>
+      <h2>Pagina de Login</h2>
       <form
+        className="login"
         onSubmit={async (event) => {
           try {
             event.preventDefault();
 
-            const res = await fetch("http://localhost:4000/users", {
+            const res = await fetch("http://localhost:4000/users/login", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({ username, email, password }),
@@ -29,9 +39,7 @@ const RegisterPage = () => {
               throw new Error(body.message);
             }
 
-            navigate("/login");
-
-            console.log(body);
+            setToken(body.data.token);
           } catch (error) {
             console.error(error);
             setErrorMessage(error.message);
@@ -67,11 +75,35 @@ const RegisterPage = () => {
           }}
         />
 
-        <button>Registrarse</button>
+        <button>Login</button>
+        <button
+          onClick={() => {
+            setShowModal(true);
+          }}
+        >
+          Cambiar contraseña
+        </button>
+        {showModal && (
+          <Modal setShowModal={setShowModal}>
+            <p>
+              Se te va a enviar un email con un código para cambiar la
+              contraseña. ¿Estás seguro de qué quieres modificarla?
+            </p>
+
+            <button
+              onClick={() => {
+                setShowModal(false);
+              }}
+            >
+              Cancelar
+            </button>
+            <PassButton email={email} setShowModal={setShowModal} />
+          </Modal>
+        )}
       </form>
       {errorMessage && <p>Error: {errorMessage}</p>}
     </section>
   );
 };
 
-export default RegisterPage;
+export default LoginPage;

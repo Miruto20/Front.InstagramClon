@@ -30,16 +30,9 @@ const Post = ({
   const { token, loggedUser } = useTokenContext();
   // startsToFill es el número de estrellas que queremos pintar. Si la votación de la entrada es 2.6 pintaremos 3 estrellas, si es 2.4 pintaremos 2
   // const starsToFill = Math.round(rate);
-  console.log("ratedByme", ratedByMe);
-  console.log("valueRated", valueRated);
-
-  console.log();
 
   const [showModal, setShowModal] = useState(false);
   const [showBorrarModal, setShowBorrarModal] = useState(false);
-
-  // const { posts, setPosts } = usePosts();
-  // console.log("image", image);
 
   return (
     <article className="post">

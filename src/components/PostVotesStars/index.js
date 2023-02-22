@@ -37,7 +37,6 @@ const PostVotesStars = ({ rate, idPost, addVoteToPost, setShowModal }) => {
             );
 
             const body = await res.json();
-            console.log("body.data6", body);
 
             if (!res.ok) {
               throw new Error(body.message);

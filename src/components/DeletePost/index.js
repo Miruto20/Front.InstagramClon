@@ -29,7 +29,6 @@ const DeletePost = ({ idUser, idPost, setShowBorrarModal }) => {
           });
 
           const body = await res.json();
-          console.log(body);
 
           if (!res.ok) {
             throw new Error(body.message);
