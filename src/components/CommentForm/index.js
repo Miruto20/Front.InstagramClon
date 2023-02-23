@@ -3,51 +3,15 @@ import { useTokenContext } from "../../context/TokenContext";
 import { usePostsContext } from "../../context/PostsContext";
 import { Link } from "react-router-dom";
 import PostPhoto from "../PostPhoto";
+import DeleteComentPost from "../DeleteComentPost";
 
-//para renderizarlo tras crearlo  PROBAR ESTOOO
-//necesito ahora setPosts y Posts, primero filter para buscar el post, luego le añado la info para que lo pinte y set para que renderice
-
-const CommentForm = ({ idPost, idUser, coments }) => {
+const CommentForm = ({ idPost, idUser, coments, setPost, post }) => {
   const [text, setText] = useState("");
   const { token, loggedUser } = useTokenContext();
-  const { setPosts, posts } = usePostsContext();
+  const { setPosts, posts, addComentToPost } = usePostsContext();
 
   const { username: usernameLogged, avatar: avatarLogged } = loggedUser;
   // console.log("posts", posts);
-
-  // const addComentToPost = ({ id, idUser, text, username, avatar }) => {
-  //   const index = posts.findIndex((post) => post.id === id);
-  //   console.log("index", index);
-  //   posts[index].text = text;
-  //   posts[index].idUser = idUser;
-
-  //   posts[index].username = username;
-  //   posts[index].avatar = avatar;
-  //   setPosts([...posts]);
-  // };
-
-  /*   const addComentToPost = ({ id, idUser, text, username, avatar }) => {
-    return posts.map((post) => {
-      if (post.id === id) {
-        console.log("id", id);
-        return {
-          ...post,
-          coments: [
-            ...post.coments,
-            {
-              id: post.coments.length + 1,
-              idUser,
-              text,
-              username,
-              avatar,
-            },
-          ],
-        };
-      } else {
-        return post;
-      }
-    });
-  }; */
 
   return (
     <section>
@@ -68,6 +32,13 @@ const CommentForm = ({ idPost, idUser, coments }) => {
                 <h4>{usernameComent}</h4>
               </Link>
               <p>{textComent}</p>
+              <DeleteComentPost
+                idUser={idUser}
+                idComent={idComent}
+                setPost={setPost}
+                post={post}
+                idPost={idPost}
+              />
             </li>
           );
         })}
@@ -95,14 +66,8 @@ const CommentForm = ({ idPost, idUser, coments }) => {
             if (!res.ok) {
               throw new Error(body.message);
             }
-            /*    const updatedPosts = addComentToPost({
-              id: idPost,
-              idUser: idUser,
-              text: text,
-              username: usernameLogged,
-              avatar: avatarLogged,
-            });
-            setPosts(updatedPosts); */
+
+            setPost(body.data.postComent);
             setText("");
           } catch (error) {
             console.error(error);

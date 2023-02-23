@@ -9,8 +9,8 @@ const Nav = () => {
   const { id } = loggedUser;
 
   return (
-    <nav>
-      <ul>
+    <nav className="navbar">
+      <ul className="navbar">
         {/* Si no hay token, pintamos los enlaces a registro y login */}
         {!token && (
           <>
@@ -28,14 +28,14 @@ const Nav = () => {
 
         {token && (
           <>
-            <li>
-              <Link to="/">Posts</Link>
+            <li className="navicon">
+              <Link to="/">
+                <i className="fa-regular fa-images"></i>
+              </Link>
             </li>
 
-            <li>
-              <Link to="/new/post">
-                <ion-icon name="add-circle-outline"></ion-icon>
-              </Link>
+            <li className="navicon">
+              <Link to="/new/post">LALALAL</Link>
             </li>
             <li>
               <Link to={`/posts/${id}`}> Post del Usuario </Link>

@@ -40,7 +40,7 @@ const usePostById = (id) => {
     fetchPostById();
   }, [id]);
 
-  return { post: post, loading, errorMessage, addVoteToPost };
+  return { post: post, loading, errorMessage, addVoteToPost, setPost };
 };
 
 export default usePostById;

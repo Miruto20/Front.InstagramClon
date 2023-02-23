@@ -24,7 +24,9 @@ const PostPage = () => {
   // const [showCommentModal, setShowCommentModal] = useState(false);
 
   // Llamamos al custom hook useEntryById y le pasamos el id que hemos recogido de los params. Este hook se va a encargar de crear los estados entry, loading y errorMessage y un useEffect que carge los datos de la API después del primer render
-  const { post, loading, errorMessage, addVoteToPost } = usePostById(id);
+  const { post, loading, errorMessage, addVoteToPost, setPost } =
+    usePostById(id);
+  console.log("postPOstPage", post);
 
   // Hacemos destructuring del objeto post
   const {
@@ -76,7 +78,13 @@ const PostPage = () => {
             createdAt={createdAt}
             addVoteToPost={addVoteToPost}
           />
-          <CommentForm idPost={id} idUser={idLogged} coments={coments} />
+          <CommentForm
+            idPost={id}
+            idUser={idLogged}
+            coments={coments}
+            setPost={setPost}
+            post={post.coments}
+          />
         </>
       )}
     </section>
