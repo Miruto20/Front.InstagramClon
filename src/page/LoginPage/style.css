@@ -1,3 +1,7 @@
+.login {
+  height: 100vh;
+}
+
 .login label,
 .login button {
   display: block;
@@ -8,7 +12,6 @@
 .login input {
   margin-bottom: 2rem;
   padding: 0.5rem 0.75rem;
-  width: 500px;
   border-radius: 0.25rem;
   border: 1px solid rgb(136, 136, 136);
   font-size: 1.1rem;

@@ -1,3 +1,4 @@
+import "./style.css";
 import { Link, useParams } from "react-router-dom";
 import Post from "../../components/Post/index";
 import ErrorMessage from "../../components/ErrorMessage";

@@ -1,3 +1,4 @@
+import "./style.css";
 import { useState } from "react";
 import { useTokenContext } from "../../context/TokenContext";
 import { usePostsContext } from "../../context/PostsContext";
@@ -26,8 +27,12 @@ const CommentForm = ({ idPost, idUser, coments, setPost, post }) => {
           } = coment;
 
           return (
-            <li key={idComent}>
-              <PostPhoto image={avatarComent} username={usernameComent} />
+            <li className="comentario" key={idComent}>
+              <PostPhoto
+                image={avatarComent}
+                username={usernameComent}
+                claseAvatar="fotoAvatarComent"
+              />
               <Link to={`/posts/${idUserComent}`}>
                 <h4>{usernameComent}</h4>
               </Link>

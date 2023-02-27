@@ -30,31 +30,37 @@ const Nav = () => {
           <>
             <li className="navicon">
               <Link to="/">
-                <i className="fa-regular fa-images"></i>
+                <ion-icon name="home-outline"></ion-icon>
               </Link>
             </li>
 
             <li className="navicon">
-              <Link to="/new/post">LALALAL</Link>
-            </li>
-            <li>
-              <Link to={`/posts/${id}`}> Post del Usuario </Link>
-            </li>
-            <li>
-              <Link to="/profile">
-                <Avatar />
+              <Link to="/new/post">
+                <ion-icon name="add-circle-outline"></ion-icon>
               </Link>
             </li>
             <li>
-              <NavLink to="/recover/password/:recoverPassCode"></NavLink>
+              <Link to={`/posts/${id}`}>
+                {" "}
+                <Avatar claseAvatar="fotoAvatarPeque" />
+              </Link>
             </li>
+            <li className="navicon">
+              <Link to="/profile">
+                <ion-icon name="settings-outline"></ion-icon>
+              </Link>
+            </li>
+            {/*  <li>
+              <NavLink to="/recover/password/:recoverPassCode"></NavLink>
+            </li> */}
             <li>
               <button
+                className="navicon"
                 onClick={() => {
                   setToken("");
                 }}
               >
-                Cerrar Sesión
+                <ion-icon name="log-out-outline"></ion-icon>
               </button>
             </li>
           </>

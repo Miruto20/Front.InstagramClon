@@ -1,3 +1,4 @@
+import "./style.css";
 import { useState, useRef } from "react";
 import { useTokenContext } from "../../context/TokenContext";
 import { useNavigate } from "react-router-dom";
@@ -51,7 +52,7 @@ const UserPostPage = () => {
         post.map((currentPost) => {
           // console.log("currentPost", currentPost);
           return (
-            <article key={currentPost.id}>
+            <article className="userPost" key={currentPost.id}>
               <Post
                 id={currentPost.id}
                 text={currentPost.text}

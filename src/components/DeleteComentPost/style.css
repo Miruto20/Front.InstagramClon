@@ -1,4 +1,10 @@
-.entryVotesStars {
+ion-icon {
+  font-size: 25px;
+}
+button {
+  background: none;
+  border: none;
+}
+.delete {
   display: flex;
-  gap: 0.1rem;
 }

@@ -27,12 +27,12 @@ const EditProfilePage = () => {
   }
 
   return (
-    <section>
-      <h2> Profile </h2>
+    <section className="editProfileSect">
+      <h2> Ajustes</h2>
       <article>
-        <Avatar />
         <form
           onSubmit={async (event) => {
+            <h3>{username}</h3>;
             try {
               event.preventDefault();
               const imagenAvatar = imagesInputRef.current.files[0];
@@ -67,7 +67,9 @@ const EditProfilePage = () => {
             }
           }}
         >
-          <label htmlFor="image">Seleccionar imagen</label>
+          <label htmlFor="image">
+            <Avatar />
+          </label>
           <input
             id="image"
             type="file"
@@ -77,7 +79,6 @@ const EditProfilePage = () => {
           ></input>
           <button>Confirmar cambio</button>
         </form>
-        <h3>Nombre de Usuario:{username}</h3>
         <h4>email: {email}</h4>
         <button
           onClick={() => {

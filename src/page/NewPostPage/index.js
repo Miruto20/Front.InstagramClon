@@ -1,8 +1,9 @@
+import "./style.css";
 import { useState, useRef } from "react";
-import { useTokenContext } from "../context/TokenContext";
+import { useTokenContext } from "../../context/TokenContext";
 import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import { usePostsContext } from "../context/PostsContext";
+import { usePostsContext } from "../../context/PostsContext";
 
 const NewPostPage = () => {
   const [text, SetText] = useState("");
@@ -25,8 +26,8 @@ const NewPostPage = () => {
   return (
     <section>
       <h2> Crea tu nuevo Post</h2>
-
       <form
+        className="newPostForm"
         onSubmit={async (event) => {
           try {
             event.preventDefault();

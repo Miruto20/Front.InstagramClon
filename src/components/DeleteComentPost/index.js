@@ -13,6 +13,7 @@ const DeleteComentPost = ({ idUser, idComent, setPost, post, idPost }) => {
 
   return (
     <button
+      className="delete"
       //fetch para borrar el post de la BBDD
       onClick={async () => {
         try {
@@ -45,7 +46,7 @@ const DeleteComentPost = ({ idUser, idComent, setPost, post, idPost }) => {
         }
       }}
     >
-      Borrar Comentario
+      <ion-icon name="trash-outline"></ion-icon>
     </button>
   );
 };

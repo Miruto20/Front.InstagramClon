@@ -1,7 +1,7 @@
 import defaultAvatar from "../../assets/images/defaultAvatar.png";
 import { useTokenContext } from "../../context/TokenContext";
 
-const Avatar = () => {
+const Avatar = ({ claseAvatar }) => {
   const { loggedUser } = useTokenContext();
 
   const { username, avatar } = loggedUser;
@@ -10,7 +10,7 @@ const Avatar = () => {
     <img
       src={avatar ? `http://localhost:4000/${avatar} ` : defaultAvatar}
       alt={`${username} avatar`}
-      className="fotoAvatarPeque "
+      className={`${claseAvatar}`}
     />
   );
 };
