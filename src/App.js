@@ -2,6 +2,7 @@ import "./App.css";
 import RegisterPage from "./page/RegisterPage";
 import { Routes, Route, Link } from "react-router-dom";
 import PostsPage from "./page/PostsPage";
+import PostsTopPage from "./page/PostsTopPage";
 import LoginPage from "./page/LoginPage";
 import NewPostPage from "./page/NewPostPage";
 import ValidationPage from "./page/ValidationPage";
@@ -34,6 +35,8 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/new/post" element={<NewPostPage />} />
+          <Route path="/posts/top" element={<PostsTopPage />} />
+
           <Route path="/profile" element={<EditProfilePage />} />
           <Route path="/post/:id" element={<PostPage />} />
           <Route path="/posts/:idUser" element={<UserPostPage />} />

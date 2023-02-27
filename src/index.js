@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { CustomTokenContextProvider } from "./context/TokenContext";
 import { CustomPostsContextProvider } from "./context/PostsContext";
+import { CustomPostsTopContextProvider } from "./context/PostsTopContext";
 
 import { BrowserRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -13,7 +14,9 @@ root.render(
     <BrowserRouter>
       <CustomTokenContextProvider>
         <CustomPostsContextProvider>
-          <App />
+          <CustomPostsTopContextProvider>
+            <App />
+          </CustomPostsTopContextProvider>
         </CustomPostsContextProvider>
       </CustomTokenContextProvider>
     </BrowserRouter>

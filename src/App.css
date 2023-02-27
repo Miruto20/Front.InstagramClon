@@ -42,12 +42,3 @@ section > h2 {
   align-items: center;
   flex-direction: column;
 }
-.fotoAvatarPeque {
-  border-radius: 50%;
-  max-width: 65px;
-  left: 0;
-  margin: 0;
-  padding: 0;
-  margin-right: 18%;
-  margin-left: 1rem;
-}

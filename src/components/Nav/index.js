@@ -33,7 +33,12 @@ const Nav = () => {
                 <ion-icon name="home-outline"></ion-icon>
               </Link>
             </li>
-
+            <li className="navicon">
+              <Link to="/posts/top">
+                {" "}
+                <ion-icon name="ribbon-outline"></ion-icon>
+              </Link>
+            </li>
             <li className="navicon">
               <Link to="/new/post">
                 <ion-icon name="add-circle-outline"></ion-icon>

@@ -48,7 +48,7 @@ const PostPage = () => {
 
   return (
     <section>
-      <h2>Post page</h2>
+      {/* <h2>Post page</h2> */}
 
       {/* Si hay mensaje de error, pintamos el componente ErrorMessage y un link
       para volver a inicio */}

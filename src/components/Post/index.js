@@ -58,10 +58,7 @@ const Post = ({
           }
         </section>
         <span>·</span>
-        <p className="PostDateAuthor">
-          Publicado por <span> {username} </span>
-          {getTimeAgo(new Date(createdAt))}
-        </p>
+        <p className="PostDateAuthor">{getTimeAgo(new Date(createdAt))}</p>
 
         {token && loggedUser.id !== idUser && (
           <>

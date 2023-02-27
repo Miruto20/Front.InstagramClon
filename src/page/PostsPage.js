@@ -28,7 +28,7 @@ const PostsPage = () => {
         searchParams={searchParams}
         setSearchParams={setSearchParams}
       />
-      <h2>POSTS</h2>
+      {/*  <h2>POSTS</h2> */}
 
       {loading && <Spinner />}
       {errorMessage && <p>Error: {errorMessage}</p>}
