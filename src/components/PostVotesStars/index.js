@@ -54,7 +54,9 @@ const PostVotesStars = ({ rate, idPost, addVoteToPost, setShowModal }) => {
           }
         }}
       >
-        <StarIcon fill={currentStar <= starsToFill ? "black" : "white"} />
+        <StarIcon
+          fill={currentStar <= starsToFill ? "rgb(218,142,0)" : "white"}
+        />
       </li>
     );
   }

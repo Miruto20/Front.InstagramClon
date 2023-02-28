@@ -1,0 +1,25 @@
+.navbarHead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  width: 100%;
+  padding: 0 20px;
+  border-bottom: 1px solid black;
+  background: rgb(192, 191, 191);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  gap: 1rem;
+  margin: 0 auto;
+}
+.imgLogo {
+  width: 60px;
+}
+
+.PostDateAuthor {
+  color: grey;
+  font-size: 13px;
+}

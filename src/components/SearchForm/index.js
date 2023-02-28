@@ -9,9 +9,10 @@ const SearchForm = ({ searchParams, setSearchParams }) => {
         event.preventDefault();
 
         setSearchParams(new URLSearchParams({ keyword }));
+        setKeyword("");
       }}
     >
-      <label htmlFor="search">Búsqueda:</label>
+      <label htmlFor="search"></label>
       <input
         id="search"
         value={keyword}

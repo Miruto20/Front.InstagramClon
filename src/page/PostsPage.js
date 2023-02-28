@@ -31,7 +31,7 @@ const PostsPage = () => {
       {/*  <h2>POSTS</h2> */}
 
       {loading && <Spinner />}
-      {errorMessage && <p>Error: {errorMessage}</p>}
+      {errorMessage && !token && <p>Error: {errorMessage}</p>}
 
       {posts.length > 0 && (
         <PostList posts={posts} addVoteToPost={addVoteToPost} />

@@ -14,17 +14,13 @@ import Nav from "./components/Nav";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import RecoverPasswordPage from "./page/RecoverPasswordPage/index";
+import NavHead from "./components/NavHead";
 
 function App() {
   return (
     <>
       <header>
-        {/*  <Routes>
-          <Route path="/" element={<PostsPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/" element={<h1>Titulo new user</h1>} />
-          <Route path="/C" element={<h1>Titulo new entry</h1>} />
-        </Routes> */}
+        <NavHead />
       </header>
 
       <Nav />

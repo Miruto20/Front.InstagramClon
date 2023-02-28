@@ -1,7 +1,7 @@
 import "./style.css";
 import { useState, useRef } from "react";
 import { useTokenContext } from "../../context/TokenContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Navigate, useParams } from "react-router-dom";
 import PostList from "../../components/PostList";
 import usePostsByIdUser from "../../hooks/usePostsByIdUser";
@@ -40,35 +40,37 @@ const UserPostPage = () => {
   // console.log(" Object.values(post)?", Object.values(post));
   return (
     <section>
-      <h2>
+      <h2 className="profileName">
         <img
           src={`http://localhost:4000/${avatar}`}
           alt={username}
           className="fotoAvatarPeque"
         />
-        {usernamePage}{" "}
+        {usernamePage}
       </h2>
       {Object.values(post).length > 0 &&
         post.map((currentPost) => {
-          // console.log("currentPost", currentPost);
+          console.log("loggedUser.id", loggedUser.id, "idUser", idUser);
           return (
-            <article className="userPost" key={currentPost.id}>
-              <Post
-                id={currentPost.id}
-                text={currentPost.text}
-                image={currentPost.image}
-                avatar={currentPost.avatar}
-                username={currentPost.username}
-                email={currentPost.email}
-                place={currentPost.place}
-                ratedByMe={currentPost.ratedByMe}
-                idUser={idUser}
-                rate={currentPost.rate}
-                owner={currentPost.owner}
-                createdAt={currentPost.createdAt}
-                // valueRated={currentPost.valueRated}
-              />
-            </article>
+            <li className="userPost" key={currentPost.id}>
+              <Link to={`/post/${currentPost.id}`}>
+                <Post
+                  id={currentPost.id}
+                  text={currentPost.text}
+                  image={currentPost.image}
+                  avatar={currentPost.avatar}
+                  username={currentPost.username}
+                  email={currentPost.email}
+                  place={currentPost.place}
+                  ratedByMe={currentPost.ratedByMe}
+                  idUser={idUser}
+                  rate={currentPost.rate}
+                  owner={currentPost.owner}
+                  createdAt={currentPost.createdAt}
+                  // valueRated={currentPost.valueRated}
+                />
+              </Link>
+            </li>
           );
         })}
     </section>

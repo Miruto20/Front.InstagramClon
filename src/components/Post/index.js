@@ -33,17 +33,20 @@ const Post = ({
 
   const [showModal, setShowModal] = useState(false);
   const [showBorrarModal, setShowBorrarModal] = useState(false);
+  console.log("idUser", idUser, "loggedUser.id", loggedUser.id);
 
   return (
     <article className="post">
       <header>
         <h3>
-          <NavLink to={`/posts/${idUser}`}>{username}</NavLink>
+          <NavLink to={`/posts/${idUser}`} className="postUsername">
+            {username}
+          </NavLink>
         </h3>
-        <h4>{place}</h4>
+        <h4 className="postPlace">{place}</h4>
       </header>
 
-      <p>{text}</p>
+      <p className="postText">{text}</p>
       {image?.length > 0 && <PostPhoto image={image} username={username} />}
 
       <footer>
@@ -129,6 +132,7 @@ const Post = ({
       {showBorrarModal && (
         <Modal setShowBorrarModal={setShowBorrarModal}>
           <button
+            className="buttonVolver"
             onClick={() => {
               setShowBorrarModal(false);
             }}

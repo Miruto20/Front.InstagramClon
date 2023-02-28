@@ -44,30 +44,20 @@ const Nav = () => {
                 <ion-icon name="add-circle-outline"></ion-icon>
               </Link>
             </li>
+            <li className="navicon">
+              <Link to="/profile">
+                <ion-icon name="settings-outline"></ion-icon>
+              </Link>
+            </li>
             <li>
               <Link to={`/posts/${id}`}>
                 {" "}
                 <Avatar claseAvatar="fotoAvatarPeque" />
               </Link>
             </li>
-            <li className="navicon">
-              <Link to="/profile">
-                <ion-icon name="settings-outline"></ion-icon>
-              </Link>
-            </li>
             {/*  <li>
               <NavLink to="/recover/password/:recoverPassCode"></NavLink>
             </li> */}
-            <li>
-              <button
-                className="navicon"
-                onClick={() => {
-                  setToken("");
-                }}
-              >
-                <ion-icon name="log-out-outline"></ion-icon>
-              </button>
-            </li>
           </>
         )}
       </ul>
