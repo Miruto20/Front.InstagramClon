@@ -50,26 +50,23 @@ const UserPostPage = () => {
       </h2>
       {Object.values(post).length > 0 &&
         post.map((currentPost) => {
-          console.log("loggedUser.id", loggedUser.id, "idUser", idUser);
           return (
             <li className="userPost" key={currentPost.id}>
-              <Link to={`/post/${currentPost.id}`}>
-                <Post
-                  id={currentPost.id}
-                  text={currentPost.text}
-                  image={currentPost.image}
-                  avatar={currentPost.avatar}
-                  username={currentPost.username}
-                  email={currentPost.email}
-                  place={currentPost.place}
-                  ratedByMe={currentPost.ratedByMe}
-                  idUser={idUser}
-                  rate={currentPost.rate}
-                  owner={currentPost.owner}
-                  createdAt={currentPost.createdAt}
-                  // valueRated={currentPost.valueRated}
-                />
-              </Link>
+              <Post
+                id={currentPost.id}
+                text={currentPost.text}
+                image={currentPost.image}
+                avatar={currentPost.avatar}
+                username={currentPost.username}
+                email={currentPost.email}
+                place={currentPost.place}
+                ratedByMe={currentPost.ratedByMe}
+                idUser={idUser}
+                rate={currentPost.rate}
+                owner={currentPost.owner}
+                createdAt={currentPost.createdAt}
+                // valueRated={currentPost.valueRated}
+              />
             </li>
           );
         })}

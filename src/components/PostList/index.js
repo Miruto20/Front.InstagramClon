@@ -24,24 +24,22 @@ const PostList = ({ posts, addVoteToPost }) => {
 
         return (
           <li key={id}>
-            <Link to={`/post/${id}`}>
-              <Post
-                id={id}
-                text={text}
-                image={image}
-                avatar={avatar}
-                username={username}
-                email={email}
-                place={place}
-                idUser={idUser}
-                rate={rate}
-                ratedByMe={ratedByMe}
-                valueRated={valueRated}
-                owner={owner}
-                createdAt={createdAt}
-                addVoteToPost={addVoteToPost}
-              />
-            </Link>
+            <Post
+              id={id}
+              text={text}
+              image={image}
+              avatar={avatar}
+              username={username}
+              email={email}
+              place={place}
+              idUser={idUser}
+              rate={rate}
+              ratedByMe={ratedByMe}
+              valueRated={valueRated}
+              owner={owner}
+              createdAt={createdAt}
+              addVoteToPost={addVoteToPost}
+            />
           </li>
         );
       })}

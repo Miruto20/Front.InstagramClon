@@ -21,3 +21,22 @@ form {
 .avatarProfile {
   border-radius: 50%;
 }
+form > input {
+  gap: 2rem;
+}
+
+.articleEditProfile > form > button {
+  margin-bottom: 1rem;
+}
+
+.articleEditProfile > button {
+  margin-bottom: 1rem;
+}
+
+.pTimeEditProfile {
+  margin-bottom: 2rem;
+}
+
+.usernameH2EditProfile {
+  color: gold;
+}

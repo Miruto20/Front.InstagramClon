@@ -47,7 +47,7 @@ const PostPage = () => {
   } = post;
 
   return (
-    <section>
+    <section classname="postSection">
       {/* <h2>Post page</h2> */}
 
       {/* Si hay mensaje de error, pintamos el componente ErrorMessage y un link
@@ -62,7 +62,7 @@ const PostPage = () => {
 
       {/* Si el objeto post no está vacío, pintamos el componente Post con todos los datos del objeto */}
       {Object.values(post).length > 0 && (
-        <>
+        <div className="divEnvoltorio">
           <Post
             id={id}
             text={text}
@@ -86,7 +86,7 @@ const PostPage = () => {
             setPost={setPost}
             post={post.coments}
           />
-        </>
+        </div>
       )}
     </section>
   );

@@ -1,15 +1,14 @@
 import "./style.css";
 import getTimeAgo from "../../utils/getTimeAgo";
 import PostVotesStars from "../../components/PostVotesStars/index";
-// import PostPhotos from "../PostPhotos";
+import Avatar from "../Avatar/index";
 import Modal from "../Modal";
 import DeletePost from "../DeletePost";
 import { useTokenContext } from "../../context/TokenContext";
 import { useState } from "react";
 import PostPhoto from "../PostPhoto";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import StarIcon from "../StarIcon";
-// import usePosts from "../../hooks/usePosts";
 
 const Post = ({
   id,
@@ -33,23 +32,39 @@ const Post = ({
 
   const [showModal, setShowModal] = useState(false);
   const [showBorrarModal, setShowBorrarModal] = useState(false);
-  console.log("idUser", idUser, "loggedUser.id", loggedUser.id);
 
   return (
     <article className="post">
       <header>
         <h3>
           <NavLink to={`/posts/${idUser}`} className="postUsername">
+            <img
+              src={`http://localhost:4000/${avatar}`}
+              alt="avatar usuarioPost"
+              className="avatarPost"
+            />
             {username}
           </NavLink>
+          <p className="postPlace">{place}</p>
         </h3>
-        <h4 className="postPlace">{place}</h4>
+        <button
+          onClick={(event) => {
+            event.preventDefault();
+
+            setShowModal(true);
+          }}
+        >
+          <ion-icon className="iconoPost" name="star-half-outline"></ion-icon>
+        </button>
       </header>
 
-      <p className="postText">{text}</p>
-      {image?.length > 0 && <PostPhoto image={image} username={username} />}
+      {image?.length > 0 && (
+        <Link to={`/post/${id}`}>
+          <PostPhoto image={image} username={username} />
+        </Link>
+      )}
 
-      <footer>
+      <div>
         <section className="PostVotes">
           <p>{parseFloat(rate).toFixed(2)}</p>{" "}
           {
@@ -60,27 +75,13 @@ const Post = ({
             />
           }
         </section>
-        <span>·</span>
+
         <p className="PostDateAuthor">{getTimeAgo(new Date(createdAt))}</p>
 
-        {token && loggedUser.id !== idUser && (
-          <>
-            <span>·</span>
-            <button
-              onClick={(event) => {
-                event.preventDefault();
+        {token && loggedUser.id !== +idUser && <></>}
 
-                setShowModal(true);
-              }}
-            >
-              Votar
-            </button>
-          </>
-        )}
-
-        {token && loggedUser.id === idUser && (
+        {token && loggedUser.id === +idUser && (
           <>
-            <span>·</span>
             <button
               onClick={(event) => {
                 event.preventDefault();
@@ -88,11 +89,12 @@ const Post = ({
                 setShowBorrarModal(true);
               }}
             >
-              Borrar Post
+              <ion-icon className="iconoPost" name="trash-outline"></ion-icon>
             </button>
           </>
         )}
-      </footer>
+      </div>
+      <p className="postText">{text}</p>
 
       {showModal && (
         <Modal setShowModal={setShowModal}>

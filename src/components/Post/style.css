@@ -6,6 +6,23 @@
   text-align: center;
 }
 
+.post header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.PostDateAuthor {
+  color: grey;
+  font-size: 11px;
+}
+
+.postText {
+  text-align: left;
+  margin-top: 1rem;
+  color: black;
+}
+
 .post:hover {
   border: 1px solid black;
 }
@@ -15,51 +32,45 @@
   text-transform: capitalize;
 }
 
-.post header h3 {
-  margin-bottom: 0.25rem;
-  color: rgb(180, 180, 0);
-}
 .postUsername {
   color: orange;
+  align-items: center;
+  margin-right: 2rem;
+  display: flex;
+  gap: 5px;
 }
-.postText {
-  color: black;
-}
-/* .postPlace {
-  color: blue;
-} */
-.post h4 {
-  font-size: 0.75rem;
+
+.postPlace {
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  display: flex;
   text-transform: uppercase;
   font-style: italic;
   font-weight: normal;
-  color: rgb(39, 39, 39);
+  color: rgb(0, 0, 0);
 }
-
-.post h4,
-.post > p {
-  margin-bottom: 1rem;
-}
-
-.post > footer {
+.post header h3 {
   display: flex;
+  align-items: center;
+}
+.post > div {
+  display: flex;
+  justify-content: space-between;
   gap: 0.25rem;
   align-items: center;
 }
 
-.entryVotes {
+.PostVotes {
   display: flex;
   gap: 0.5rem;
 }
 
-.entryDateAuthor {
-  font-size: 0.9rem;
-  font-style: italic;
-}
-
-.entryDateAuthor span {
-  font-weight: bold;
-}
 .buttonVolver {
   margin-right: 1rem;
+}
+.avatarPost {
+  border-radius: 50%;
+  max-width: 45px;
+  max-height: 45px;
+  border: 2px solid;
 }

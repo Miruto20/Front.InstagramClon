@@ -15,7 +15,7 @@ const CommentForm = ({ idPost, idUser, coments, setPost, post }) => {
   // console.log("posts", posts);
 
   return (
-    <section>
+    <section className="comentForm">
       <ul className="ComentList">
         {coments.map((coment) => {
           const {
@@ -36,7 +36,7 @@ const CommentForm = ({ idPost, idUser, coments, setPost, post }) => {
               <Link to={`/posts/${idUserComent}`}>
                 <h4>{usernameComent}</h4>
               </Link>
-              <p>{textComent}</p>
+              <p className="textComent">{textComent}</p>
               <DeleteComentPost
                 idUser={idUser}
                 idComent={idComent}

@@ -1,3 +1,4 @@
+import "./style.css";
 import { useState } from "react";
 
 const SearchForm = ({ searchParams, setSearchParams }) => {
@@ -5,6 +6,7 @@ const SearchForm = ({ searchParams, setSearchParams }) => {
 
   return (
     <form
+      className="buscadorForm"
       onSubmit={(event) => {
         event.preventDefault();
 
@@ -21,7 +23,9 @@ const SearchForm = ({ searchParams, setSearchParams }) => {
         }}
       />
 
-      <button>Buscar</button>
+      <button>
+        <ion-icon name="search-circle-outline"></ion-icon>
+      </button>
     </form>
   );
 };

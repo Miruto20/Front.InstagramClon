@@ -28,8 +28,8 @@ const EditProfilePage = () => {
 
   return (
     <section className="editProfileSect">
-      <h2> Ajustes</h2>
-      <article>
+      <h2 className="usernameH2EditProfile"> {username}</h2>
+      <article className="articleEditProfile">
         <form
           onSubmit={async (event) => {
             <h3>{username}</h3>;
@@ -79,8 +79,9 @@ const EditProfilePage = () => {
           ></input>
           <button>Confirmar cambio</button>
         </form>
-        <h4>email: {email}</h4>
+        <h4 className="emailH4EditProfile">email: {email}</h4>
         <button
+          className="emailButtonEditProfile"
           onClick={() => {
             setShowMailModal(true);
           }}
@@ -121,7 +122,10 @@ const EditProfilePage = () => {
           </Modal>
         )}
 
-        <p> se unió: {getTimeAgo(new Date(createdAt))}</p>
+        <p className="pTimeEditProfile">
+          {" "}
+          se unió: {getTimeAgo(new Date(createdAt))}
+        </p>
         <button
           onClick={() => {
             setShowModal(true);

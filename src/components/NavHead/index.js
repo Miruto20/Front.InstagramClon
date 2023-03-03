@@ -12,17 +12,21 @@ const NavHead = () => {
         {!token && (
           <>
             <li>
-              <img src="LOGO.png" className="imgLogo" alt="Casigram Logo" />
+              <img src="/LOGO.png" className="imgLogo" alt="Casigram Logo" />
             </li>
-            <li>CASIGRAM</li>
+            <li>
+              <h1>C A S I G R A M</h1>
+            </li>
           </>
         )}
         {token && (
           <>
             <li>
-              <img src="LOGO.png" className="imgLogo" alt="Casigram Logo" />
+              <img src="/LOGO.png" className="imgLogo" alt="Casigram Logo" />
             </li>
-            <li>CASIGRAM</li>
+            <li className="h1Container">
+              <h1>C A S I G R A M</h1>
+            </li>
 
             <li>
               <button

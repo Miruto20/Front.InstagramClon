@@ -28,7 +28,7 @@ const PostsTopPage = () => {
         searchParams={searchParams}
         setSearchParams={setSearchParams}
       />
-      <h2>más valoradas</h2>
+      <h2 className="topValueh2">Top fotos</h2>
 
       {loading && <Spinner />}
       {errorMessage && <p>Error: {errorMessage}</p>}
