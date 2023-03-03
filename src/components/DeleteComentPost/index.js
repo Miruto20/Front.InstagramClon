@@ -1,14 +1,8 @@
 import "./style.css";
 import { useTokenContext } from "../../context/TokenContext";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
-// import usePosts from "../../hooks/usePosts";
-import { usePostsContext } from "../../context/PostsContext";
 
 const DeleteComentPost = ({ idUser, idComent, setPost, post, idPost }) => {
-  const navigate = useNavigate();
-
   const { token } = useTokenContext();
 
   return (
@@ -30,19 +24,13 @@ const DeleteComentPost = ({ idUser, idComent, setPost, post, idPost }) => {
           if (!res.ok) {
             throw new Error(body.message);
           }
-          /*           console.log("bodyDeleteComent", body);
-           */ setPost(body.data.postComent);
+          setPost(body.data.postComent);
 
-          // console.log("body.data.posts", body.data.posts);
-          // setPosts(body.data.posts);
-          // navigate("/");
           toast.success(body.message);
         } catch (error) {
           console.error(error);
           toast.error(error.message);
         } finally {
-          /*           setShowBorrarComentModal(false);
-           */
         }
       }}
     >
@@ -50,7 +38,5 @@ const DeleteComentPost = ({ idUser, idComent, setPost, post, idPost }) => {
     </button>
   );
 };
-// }, [posts]);
-// };
 
 export default DeleteComentPost;

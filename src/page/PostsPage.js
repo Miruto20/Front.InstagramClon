@@ -5,8 +5,6 @@ import { useTokenContext } from "../context/TokenContext";
 import SearchForm from "../components/SearchForm/index";
 import { usePostsContext } from "../context/PostsContext";
 
-// import usePosts from "../hooks/usePosts";
-
 const PostsPage = () => {
   const {
     errorMessage,
@@ -16,7 +14,7 @@ const PostsPage = () => {
     setSearchParams,
     posts,
   } = usePostsContext();
-  const { token, loggedUser } = useTokenContext();
+  const { token } = useTokenContext();
 
   if (!token) {
     return <Navigate to="/login" />;
@@ -28,7 +26,6 @@ const PostsPage = () => {
         searchParams={searchParams}
         setSearchParams={setSearchParams}
       />
-      {/*  <h2>POSTS</h2> */}
 
       {loading && <Spinner />}
       {errorMessage && !token && <p>Error: {errorMessage}</p>}

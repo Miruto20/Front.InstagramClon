@@ -4,7 +4,6 @@ import Post from "../../components/Post/index";
 import ErrorMessage from "../../components/ErrorMessage";
 import Spinner from "../../components/Spinner";
 import usePostById from "../../hooks/usePostById";
-import { useState } from "react";
 import { useTokenContext } from "../../context/TokenContext";
 
 import CommentForm from "../../components/CommentForm/index";
@@ -22,12 +21,9 @@ const PostPage = () => {
     id: idLogged,
   } = loggedUser;
 
-  // const [showCommentModal, setShowCommentModal] = useState(false);
-
   // Llamamos al custom hook useEntryById y le pasamos el id que hemos recogido de los params. Este hook se va a encargar de crear los estados entry, loading y errorMessage y un useEffect que carge los datos de la API después del primer render
   const { post, loading, errorMessage, addVoteToPost, setPost } =
     usePostById(id);
-  console.log("postPOstPage", post);
 
   // Hacemos destructuring del objeto post
   const {

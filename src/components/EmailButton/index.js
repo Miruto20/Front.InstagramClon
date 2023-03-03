@@ -27,7 +27,6 @@ const EmailButton = ({ email, setShowMailModal, newEmail }) => {
             throw new Error(body.message);
           }
 
-          // setCambioContraseña(true);
           navigate("/login");
 
           toast.success(body.message);

@@ -2,18 +2,15 @@ import "./style.css";
 import { useTokenContext } from "../../context/TokenContext";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
-// import usePosts from "../../hooks/usePosts";
+
 import { usePostsContext } from "../../context/PostsContext";
 
 const DeletePost = ({ idUser, idPost, setShowBorrarModal }) => {
   const navigate = useNavigate();
 
   const { token } = useTokenContext();
-  // const { posts, setPosts } = usePosts();
   const { posts, setPosts } = usePostsContext();
 
-  // useEffect(() => {
   return (
     <button
       //fetch para borrar el post de la BBDD
@@ -35,8 +32,6 @@ const DeletePost = ({ idUser, idPost, setShowBorrarModal }) => {
           }
           setPosts((posts) => posts.filter((post) => post.id !== idPost));
 
-          // console.log("body.data.posts", body.data.posts);
-          // setPosts(body.data.posts);
           navigate("/");
           toast.success(body.message);
         } catch (error) {
@@ -51,7 +46,5 @@ const DeletePost = ({ idUser, idPost, setShowBorrarModal }) => {
     </button>
   );
 };
-// }, [posts]);
-// };
 
 export default DeletePost;

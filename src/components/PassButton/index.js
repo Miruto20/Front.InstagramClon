@@ -25,7 +25,6 @@ const PassButton = ({ email, setShowModal }) => {
             throw new Error(body.message);
           }
 
-          // setCambioContraseña(true);
           navigate("/login");
 
           toast.success(body.message);

@@ -55,9 +55,6 @@ const Nav = () => {
                 <Avatar claseAvatar="fotoAvatarPeque" />
               </Link>
             </li>
-            {/*  <li>
-              <NavLink to="/recover/password/:recoverPassCode"></NavLink>
-            </li> */}
           </>
         )}
       </ul>

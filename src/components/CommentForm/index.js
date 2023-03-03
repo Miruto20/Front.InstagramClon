@@ -12,7 +12,6 @@ const CommentForm = ({ idPost, idUser, coments, setPost, post }) => {
   const { setPosts, posts, addComentToPost } = usePostsContext();
 
   const { username: usernameLogged, avatar: avatarLogged } = loggedUser;
-  // console.log("posts", posts);
 
   return (
     <section className="comentForm">

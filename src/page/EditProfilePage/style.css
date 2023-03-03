@@ -25,18 +25,36 @@ form > input {
   gap: 2rem;
 }
 
+.articleEditProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .articleEditProfile > form > button {
   margin-bottom: 1rem;
 }
 
 .articleEditProfile > button {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .pTimeEditProfile {
+  margin-top: 2rem;
   margin-bottom: 2rem;
 }
 
 .usernameH2EditProfile {
-  color: gold;
+  color: rgb(218, 142, 0);
+}
+.buttonEditProfile {
+  display: flex;
+  color: rgb(255, 184, 52);
+  background-color: rgba(90, 90, 90, 0.9);
+  padding: 10px 5px;
+  border-radius: 60%;
+}
+.emailH4EditProfile {
+  color: rgb(255, 184, 52);
+  margin-bottom: 1rem;
 }

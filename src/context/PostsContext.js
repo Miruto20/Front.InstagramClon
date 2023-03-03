@@ -1,9 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { useTokenContext } from "../context/TokenContext";
 import { useSearchParams } from "react-router-dom";
-
-import useLocalStorage from "../hooks/useLocalStorage";
 
 export const PostsContext = createContext();
 
@@ -21,8 +18,6 @@ export const CustomPostsContextProvider = ({ children }) => {
 
     setPosts([...posts]);
   };
-
-  const navigate = useNavigate();
 
   const { token } = useTokenContext();
 

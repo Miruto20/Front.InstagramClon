@@ -9,15 +9,13 @@ const usePostByIdUser = (idUser) => {
   const [avatarPage, setAvatarPage] = useState("");
 
   const { token } = useTokenContext();
-
+  /* 
   const addVoteToPost = ({ newAvg, ratedByMe }) => {
     post.ratedByMe = ratedByMe;
     post.votes = newAvg;
 
     setPost({ ...post });
-  };
-  // console.log("idUser", idUser);
-  // let usernamePage;
+  }; */
 
   useEffect(() => {
     const fetchPostByIdUser = async () => {
@@ -26,7 +24,6 @@ const usePostByIdUser = (idUser) => {
         const res = await fetch(`http://localhost:4000/posts/${idUser}`, {
           headers: token ? { Authorization: token } : {},
         });
-        // console.log("res", res);
         const body = await res.json();
 
         if (!res.ok) {
@@ -52,7 +49,7 @@ const usePostByIdUser = (idUser) => {
     setUsernamePage,
     avatarPage,
     loading,
-    errorMessage /* addVoteToPost: addVoteToPost  */,
+    errorMessage,
   };
 };
 

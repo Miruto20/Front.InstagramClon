@@ -72,8 +72,3 @@ const ValidationPage = () => {
 };
 
 export default ValidationPage;
-
-// // Validar un usuario.
-// app.put("/users/validate/:registrationCode", validateUser);
-
-// const { registrationCode } = req.params;

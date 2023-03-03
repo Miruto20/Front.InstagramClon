@@ -5,8 +5,6 @@ import { useTokenContext } from "../context/TokenContext";
 import SearchForm from "../components/SearchForm/index";
 import { usePostsTopContext } from "../context/PostsTopContext";
 
-// import usePosts from "../hooks/usePosts";
-
 const PostsTopPage = () => {
   const {
     errorMessage,
@@ -16,7 +14,7 @@ const PostsTopPage = () => {
     setSearchParams,
     posts,
   } = usePostsTopContext();
-  const { token, loggedUser } = useTokenContext();
+  const { token } = useTokenContext();
 
   if (!token) {
     return <Navigate to="/login" />;

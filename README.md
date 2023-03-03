@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+Proyecto de Frontend de React para una Aplicación con Funciones Similares a Instagram
+Este proyecto consiste en una aplicación web desarrollada con React que proporciona una serie de funciones similares
+a las que se encuentran en la popular plataforma de redes sociales, Instagram. Algunas de estas funciones incluyen:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+-Registro y inicio de sesión de usuarios
 
-## Available Scripts
+-Perfiles de usuario con imágenes de perfil
 
-In the project directory, you can run:
+-Página de inicio con las publicaciones de los usuarios
 
-### `npm start`
+-Posibilidad de crear publicaciones que incluyen imágenes, descripciones y lugar(sin usar geolocalizadores, libertad de texting)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-Capacidad de buscar publicaciones y usuarios específicos
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+-Capacidad de ver las publicaciones más valoradas en general o filtrar por parametros de busqueda específicos
 
-### `npm test`
+-Capacidad para comentar y valorar las publicaciones
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-Posibilidad de acceder a pagina con opciones de edicion de usuario(avatar, email y contraseña)
 
-### `npm run build`
+-Posibilidad de acceder a tu pagina de publicaciones con todas listadas, así como a la pagina de cualquier usuario.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+####### Para instalar y configurar este proyecto, siga los siguientes pasos: #######
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Clone este repositorio en su máquina local.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Abra una terminal en el directorio raíz del proyecto y ejecute el comando npm install para instalar todas las dependencias necesarias.
 
-### `npm run eject`
+Cree un archivo .env en el directorio raíz del proyecto y proporcione los valores de configuración necesarios para el proyecto,
+como credenciales de acceso a la base de datos y claves de API de servicios externos (si corresponde).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Ejecute el comando npm start en la terminal para iniciar la aplicación en modo de desarrollo.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+####### Estructura del proyecto #######
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+El proyecto sigue una estructura de directorios típica de una aplicación React. Los principales directorios y archivos del proyecto son:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+src: este directorio contiene todos los archivos fuente del proyecto.
 
-## Learn More
+components: este directorio contiene todos los componentes React de la aplicación.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+pages: este directorio contiene las páginas principales de la aplicación, como la página de inicio y el perfil del usuario.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+styles: este directorio contiene los archivos de estilo CSS y otros recursos visuales utilizados en la aplicación.
 
-### Code Splitting
+App.js: el archivo principal que define la estructura de la aplicación y renderiza los componentes necesarios.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+index.js: el archivo principal que inicia la aplicación y proporciona la configuración necesaria.
 
-### Analyzing the Bundle Size
+\*[Título e imagen de portada](#Título-e-imagen-de-portada)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+\*[Insignias](#insignias)
 
-### Making a Progressive Web App
+\*[Índice](#índice)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+\*[Descripción del proyecto](#descripción-del-proyecto)
 
-### Advanced Configuration
+\*[Estado del proyecto](#Estado-del-proyecto)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+\*[Características de la aplicación y demostración](#Características-de-la-aplicación-y-demostración)
 
-### Deployment
+\*[Acceso al proyecto](#acceso-proyecto)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+\*[Tecnologías utilizadas](#tecnologías-utilizadas)
 
-### `npm run build` fails to minify
+\*[Personas Contribuyentes](#personas-contribuyentes)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+\*[Personas-Desarrolladores del Proyecto](#personas-desarrolladores)
+
+- [Licencia](#licencia)
+
+\*[Conclusión](#conclusión)

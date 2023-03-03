@@ -1,6 +1,6 @@
 import "./App.css";
 import RegisterPage from "./page/RegisterPage";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import PostsPage from "./page/PostsPage";
 import PostsTopPage from "./page/PostsTopPage";
 import LoginPage from "./page/LoginPage";

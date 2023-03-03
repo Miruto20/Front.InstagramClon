@@ -20,7 +20,6 @@ const EditProfilePage = () => {
   const [showMailModal, setShowMailModal] = useState(false);
   const [newEmail, setNewEmail] = useState("");
 
-  // const [cambioContraseña, setCambioContraseña] = useState(false);
   const { token } = useTokenContext();
   if (!token) {
     return <Navigate to="/login" />;
@@ -41,7 +40,7 @@ const EditProfilePage = () => {
               const formData = new FormData();
               formData.set("avatar", imagenAvatar);
 
-              /*  Cuando hacemos una entrada le pasamos imagesInputRef.Current.files ...puede contener varias fotos arrai, pero aqui le pasamos la primera posicion SIEMPRE no un array 
+              /*  Cuando hacemos una entrada le pasamos imagesInputRef.Current.files ...puede contener varias fotos el array, pero aqui le pasamos la primera posicion SIEMPRE no un array 
               if (imagenAvatar.length) {
                 for (const image of imagenAvatar) {
                   formData.set("avatar", image);
@@ -77,11 +76,11 @@ const EditProfilePage = () => {
             accept="image/*"
             ref={imagesInputRef}
           ></input>
-          <button>Confirmar cambio</button>
+          <button className="buttonEditProfile">Confirmar cambio</button>
         </form>
-        <h4 className="emailH4EditProfile">email: {email}</h4>
+        <h4 className="emailH4EditProfile">{email}</h4>
         <button
-          className="emailButtonEditProfile"
+          className="buttonEditProfile"
           onClick={() => {
             setShowMailModal(true);
           }}
@@ -122,17 +121,17 @@ const EditProfilePage = () => {
           </Modal>
         )}
 
-        <p className="pTimeEditProfile">
-          {" "}
-          se unió: {getTimeAgo(new Date(createdAt))}
-        </p>
         <button
+          className="buttonEditProfile"
           onClick={() => {
             setShowModal(true);
           }}
         >
           Cambiar contraseña
         </button>
+        <p className="pTimeEditProfile">
+          Te uniste: {getTimeAgo(new Date(createdAt))}
+        </p>
       </article>
       {showModal && (
         <Modal setShowModal={setShowModal}>

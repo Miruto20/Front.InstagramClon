@@ -1,14 +1,12 @@
 import "./style.css";
 import getTimeAgo from "../../utils/getTimeAgo";
 import PostVotesStars from "../../components/PostVotesStars/index";
-import Avatar from "../Avatar/index";
 import Modal from "../Modal";
 import DeletePost from "../DeletePost";
 import { useTokenContext } from "../../context/TokenContext";
 import { useState } from "react";
 import PostPhoto from "../PostPhoto";
 import { Link, NavLink } from "react-router-dom";
-import StarIcon from "../StarIcon";
 
 const Post = ({
   id,
@@ -60,7 +58,11 @@ const Post = ({
 
       {image?.length > 0 && (
         <Link to={`/post/${id}`}>
-          <PostPhoto image={image} username={username} />
+          <PostPhoto
+            image={image}
+            username={username}
+            claseAvatar="imgFilter"
+          />
         </Link>
       )}
 

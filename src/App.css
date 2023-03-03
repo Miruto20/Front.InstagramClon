@@ -52,26 +52,33 @@ section > h2 {
   -webkit-text-fill-color: transparent;
 }
 
-@media (width>=750px) {
+ion-icon {
+  font-size: 35px;
+  color: rgb(218, 142, 0);
+}
+
+@media (width>=850px) {
   .post {
     min-width: 600px;
   }
-  /* .postSection :first-child {
-    margin: 0 auto;
-  } */
+
   .divEnvoltorio {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    gap: 1rem;
   }
   .textComent {
     flex-grow: 1;
+    min-width: 140px;
   }
 }
 
-@media (width>=1250px) {
+@media (width>=1450px) {
   .post {
-    min-width: 900px;
+    min-width: 800px;
+  }
+  .textComent {
+    flex-grow: 1;
+    min-width: 200px;
   }
 }

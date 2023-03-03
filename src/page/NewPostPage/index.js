@@ -55,10 +55,6 @@ const NewPostPage = () => {
             if (!res.ok) {
               throw new Error(body.message);
             }
-            // const newPost = body.data.post;
-            console.log("posts", posts);
-            // posts.push(newPost);
-            console.log("body.idPosts", body.idPost);
 
             setPosts(body.idPost);
             navigate("/");
