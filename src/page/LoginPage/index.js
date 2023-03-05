@@ -20,7 +20,7 @@ const LoginPage = () => {
   }
   return (
     <section>
-      <h2>Pagina de Login</h2>
+      <h2>Accede a tu cuenta</h2>
       <form
         className="login"
         onSubmit={async (event) => {

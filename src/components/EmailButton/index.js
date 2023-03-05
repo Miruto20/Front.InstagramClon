@@ -8,7 +8,7 @@ const EmailButton = ({ email, setShowMailModal, newEmail }) => {
 
   return (
     <button
-      //fetch para solicitar que te envíe un correo con una nueva contraseña
+      //fetch para solicitar cambio de correo
       onClick={async () => {
         try {
           const res = await fetch("http://localhost:4000/users/email/recover", {

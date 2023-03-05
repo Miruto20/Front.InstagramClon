@@ -31,3 +31,7 @@
   background-color: black;
   color: white;
 }
+section h2 {
+  font-size: 40px;
+  color: srgb(62, 60, 55);
+}
