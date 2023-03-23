@@ -4,6 +4,7 @@ import { useTokenContext } from "../../context/TokenContext";
 import { useNavigate } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import { usePostsContext } from "../../context/PostsContext";
+import { toast } from "react-toastify";
 
 const NewPostPage = () => {
   const [text, SetText] = useState("");
@@ -57,7 +58,11 @@ const NewPostPage = () => {
             }
 
             setPosts(body.idPost);
+            console.log(body);
+            toast.success("Post creado con éxito");
+
             navigate("/");
+            // toast.success(body.message);
           } catch (error) {
             console.error(error);
             SetErrorMessage(error.message);
@@ -72,12 +77,14 @@ const NewPostPage = () => {
           onChange={(event) => {
             SetText(event.target.value);
           }}
+          maxLength="200"
         ></input>
 
         <label htmlFor="place">Lugar:</label>
         <input
           id="place"
           required
+          maxLength={30}
           value={place}
           onChange={(event) => {
             SetPlace(event.target.value);

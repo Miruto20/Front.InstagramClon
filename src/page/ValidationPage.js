@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 // import { toast } from "react-toastify";
 // import ErrorMessage from "../../components/ErrorMessage";
 import Spinner from "../components/Spinner";
+import { toast } from "react-toastify";
 
 // Página a la que va el usuario cuando hace click en el botón del email para activar su cuenta
 const ValidationPage = () => {
@@ -42,6 +43,8 @@ const ValidationPage = () => {
         /* // Si todo va bien, mostramos una alerta al usuario indicando que está activado y lo redireccionamos a "/login" para que se pueda loguear
 
         toast.success("¡Has validado tu cuenta correctamente!"); */
+        toast.success(body.message);
+
         navigate("/login");
       } catch (error) {
         // Si algo va mal, sacamos el error por consola y metemos el mensaje en el estado errorMessage

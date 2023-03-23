@@ -27,6 +27,8 @@ const Post = ({
   const { token, loggedUser } = useTokenContext();
   // startsToFill es el número de estrellas que queremos pintar. Si la votación de la entrada es 2.6 pintaremos 3 estrellas, si es 2.4 pintaremos 2
   // const starsToFill = Math.round(rate);
+  // console.log("loggedUser", loggedUser.id);
+  // console.log("Post.idUser ", idUser);
 
   const [showModal, setShowModal] = useState(false);
   const [showBorrarModal, setShowBorrarModal] = useState(false);
@@ -45,15 +47,17 @@ const Post = ({
           </NavLink>
           <p className="postPlace">{place}</p>
         </h3>
-        <button
-          onClick={(event) => {
-            event.preventDefault();
+        {idUser !== loggedUser.id && (
+          <button
+            onClick={(event) => {
+              event.preventDefault();
 
-            setShowModal(true);
-          }}
-        >
-          <ion-icon className="iconoPost" name="star-half-outline"></ion-icon>
-        </button>
+              setShowModal(true);
+            }}
+          >
+            <ion-icon className="iconoPost" name="star-half-outline"></ion-icon>
+          </button>
+        )}
       </header>
 
       {image?.length > 0 && (
@@ -74,6 +78,7 @@ const Post = ({
               rate={rate}
               idPost={id}
               addVoteToPost={addVoteToPost}
+              setShowModal={setShowModal}
             />
           }
         </section>
@@ -100,7 +105,7 @@ const Post = ({
 
       {showModal && (
         <Modal setShowModal={setShowModal}>
-          {ratedByMe ? (
+          {valueRated ? (
             <section>
               <p>Has dado esta puntuación: </p>
               <button

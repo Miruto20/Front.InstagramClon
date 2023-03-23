@@ -1,6 +1,7 @@
 import "./style.css";
 import StarIcon from "../StarIcon";
 import { useTokenContext } from "../../context/TokenContext";
+import { toast } from "react-toastify";
 
 const PostVotesStars = ({ rate, idPost, addVoteToPost, setShowModal }) => {
   const { token } = useTokenContext();
@@ -47,10 +48,11 @@ const PostVotesStars = ({ rate, idPost, addVoteToPost, setShowModal }) => {
               newAvg: body.data.rate,
               valueRated: currentStar,
             });
+            setShowModal(false);
+            toast.success(body.message);
           } catch (error) {
             console.error(error);
-          } finally {
-            setShowModal(false);
+            toast.error(error.message);
           }
         }}
       >

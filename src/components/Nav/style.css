@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+a:visited {
+  text-decoration: none;
+  color: rgb(218, 142, 0);
+}
 .navbar {
   position: fixed;
   bottom: 0;

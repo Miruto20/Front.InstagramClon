@@ -29,7 +29,7 @@ const PostsTopPage = () => {
       <h2 className="topValueh2">Top fotos</h2>
 
       {loading && <Spinner />}
-      {errorMessage && <p>Error: {errorMessage}</p>}
+      {errorMessage && !token && <p>Error: {errorMessage}</p>}
 
       {posts.length > 0 && (
         <PostList posts={posts} addVoteToPost={addVoteToPost} />

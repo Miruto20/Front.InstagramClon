@@ -46,6 +46,7 @@ export const CustomPostsContextProvider = ({ children }) => {
 
         // Cargamos los datos de los posts en el estado de posts
         setPosts([...body.data.posts]);
+        console.log("postsPostsContext", body.data.posts);
       } catch (error) {
         // Si salta algún error, metemos el mensaje en el estado errorMessage
         setErrorMessage(error.message);

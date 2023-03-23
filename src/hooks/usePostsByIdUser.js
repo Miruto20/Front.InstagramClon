@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Post from "../components/Post";
 import { useTokenContext } from "../context/TokenContext";
 
 const usePostByIdUser = (idUser) => {
@@ -30,6 +31,7 @@ const usePostByIdUser = (idUser) => {
           throw new Error(body.message);
         }
         setPost(body.data.post);
+        console.log("PostidUser", post);
         setUsernamePage(body.data.post[0].username);
         setAvatarPage(body.data.post[0].avatar);
       } catch (error) {
